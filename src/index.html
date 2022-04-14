@@ -3,22 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>LeaderBoard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Melaku LeaderBoard</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
-    <script defer="defer" src="main.js"></script>
-    <link href="main.css" rel="stylesheet" />
   </head>
+
   <body>
     <header>
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"
-            ><span class="text-danger">Eshetu</span> LeaderBoard</a
-          >
+          <a class="navbar-brand" href="#">
+            <span class="text-danger">Melaku</span> LeaderBoard
+          </a>
         </div>
       </nav>
     </header>
@@ -30,9 +29,15 @@
       </div>
       <div class="container d-flex flex-row justify-content-between mt-4 p-2">
         <div class="row col-lg-6 mt-4">
-          <div class="p-1 d-flex flex-row justify-content-between">
-            <h2>Recent Score</h2>
-            <h3><i class="fa-solid fa-arrows-rotate"></i></h3>
+          <div class="row d-flex flex-row justify-content-between">
+            <div class="col">
+              <h2>Recent Score</h2>
+            </div>
+            <div class="col">
+              <button type="button" id="getter" class="btn btn-primary">
+                Refresh
+              </button>
+            </div>
           </div>
           <table class="table table-striped">
             <tr>
@@ -44,15 +49,17 @@
         </div>
         <div class="vr"></div>
         <div class="row col-lg-6 mt-5">
-          <div class="mt-4"><h2>Add Your Score</h2></div>
-          <form class="mt-5 pt-5">
+          <div class="mt-4">
+            <h2>Add Your Score</h2>
+          </div>
+          <form id="score-form" class="mt-5 pt-5">
             <div class="mb-3">
               <label for="lb-name" class="form-label">Name</label>
-              <input class="form-control" id="lb-name" />
+              <input type="text" class="form-control" id="lb-name" />
             </div>
             <div class="mb-3">
               <label for="lb-score" class="form-label">Score</label>
-              <input class="form-control" id="lb-score" />
+              <input type="text" class="form-control" id="lb-score" />
             </div>
             <button type="submit" class="btn btn-primary float-end">
               Submit
@@ -61,12 +68,13 @@
         </div>
       </div>
     </main>
+
     <footer id="contact" class="text-center mt-5 bg-light">
       <div class="text-center text-dark p-3 copyright">
         © 2022 Copyright:
         <a
           class="text-dark text-decoration-none"
-          href="https://github.com/Melaku05"
+          href="http://odhiambo.edward.com/"
           >Melaku LeaderBoard</a
         >
       </div>
