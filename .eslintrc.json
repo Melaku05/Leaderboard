@@ -10,16 +10,31 @@
     "sourceType": "module"
   },
   "extends": ["airbnb-base"],
+
   "rules": {
     "no-shadow": "off",
+    "no-unused-vars": 0,
+    "no-tabs": 0,
     "no-param-reassign": "off",
+    "no-underscore-dangle": "off",
+    "no-new-func": "off",
+    "no-multi-assign": "off",
+    "consistent-return": "off",
+    "no-template-curly-in-string": "off",
+    "no-restricted-syntax": "off",
+    "camelcase": "off",
+    "func-names": "off",
+    "no-undef": "off",
     "eol-last": "off",
-    "import/extensions": [ 1, {
-      "js": "always", "json": "always"
-    }]
+    "max-len": "off",
+    "no-eval": "off",
+    "import/extensions": [
+      1,
+      {
+        "js": "always",
+        "json": "always"
+      }
+    ]
   },
-  "ignorePatterns": [
-    "dist/",
-    "build/"
-  ]
+  "ignorePatterns": ["dist/", "build/"]
 }
