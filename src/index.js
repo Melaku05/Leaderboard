@@ -1,68 +1,45 @@
-import 'bootstrap';
-import './scss/index.scss';
-import tableData from './js/displayLB.js';
+/* eslint-disable */
+import _ from "lodash";
+/* eslint-enable */
 
-const scoreForm = document.querySelector('#score-form');
+import './style.css';
 
-const getData = () => {
-  fetch(
-    'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/VwaMYCtnuP7TunvNhm2w/scores/',
-    {
-      method: 'GET',
-    },
-  )
-    .then((res) => res.json())
-    .then((final) => {
-      const data = final.result;
-      data.forEach((val) => {
-        tableData(val.user, val.score);
-      });
-    });
-};
+import { setScores } from '../modules/submit.js';
+import displayScores from '../modules/refresh.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-  getData();
-});
+const refreshBtn = document.getElementById('refresh');
+const submitBtn = document.getElementById('submit');
+const player = document.getElementById('name');
+const score = document.getElementById('score');
+const errorMessage = document.getElementById('error');
+const regex1 = /^\s+$/;
+const regex2 = /^[0-9]+$/;
 
-// Refresh page
-document.getElementById('getter').addEventListener('click', () => {
-  getData();
-  window.location.reload(true); // Refresh browser
-});
+errorMessage.style.display = 'none';
 
-scoreForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const formName = document.querySelector('#lb-name');
-  const formScore = document.querySelector('#lb-score');
+window.addEventListener('DOMContentLoaded', () => {
+  displayScores();
 
-  const alertBox = document.querySelector('#alert');
+  refreshBtn.addEventListener('click', () => {
+    displayScores();
+  });
 
-  const formObject = {
-    user: formName.value,
-    score: formScore.value,
-  };
+  submitBtn.addEventListener('click', () => {
+    if (player.value.length === 0 || player.value.match(regex1)) {
+      return;
+    }
 
-  fetch(
-    'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/VwaMYCtnuP7TunvNhm2w/scores/',
-    {
-      method: 'POST',
-      body: JSON.stringify(formObject),
-      headers: {
-        'Content-Type': 'application/json', // Specify the type of data you are sending
-      },
-    },
-  ) // Post data to the API
-  // Actions after posting the data
-    .then((res) => res.json())
-    .then((final) => {
-      formName.value = '';
-      formScore.value = '';
-      alertBox.innerHTML = final.result;
-      alertBox.style.opacity = 1;
-      alertBox.style.PointerEvents = 'all';
-      setTimeout(() => {
-        alertBox.style.opacity = 0;
-        alertBox.style.PointerEvents = 'none';
-      }, 2500);
-    });
+    if (!score.value.match(regex2)) {
+      errorMessage.style.display = 'block';
+      errorMessage.style.color = 'yellow';
+      errorMessage.style.fontSize = '12px';
+      errorMessage.style.lineHeight = '24px';
+      return;
+    }
+    errorMessage.style.display = 'none';
+
+    setScores(player.value, score.value);
+    player.value = '';
+    score.value = '';
+  });
 });
