@@ -1,5 +1,4 @@
-const URL =
-  'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Melaku/scores';
+const URL = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Melaku/scores';
 
 const setData = async () => {
   const response = await fetch(URL);
