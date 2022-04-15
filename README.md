@@ -35,10 +35,13 @@ to run the project locally, clone the project using the command
 
 `git clone https://github.com/Melaku05/Leaderboard.git`
 
-### Run test
+After cloning the repo, change dir to the project folder then run the following:
 
-navigate in to the project directory, from GitHub,
-to test or run the application double click on the `index.html` file to open in your browser
+npm install
+npm run build
+if you got error just type " npm audit fix" in terminal/cmd
+npm start
+Hurray!!! You are now good to go.
 
 ## Authors
 
