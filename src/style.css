@@ -6,6 +6,7 @@
 }
 
 body {
+  background: rgb(238, 226, 226);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,11 +19,13 @@ main {
 }
 
 h1 {
+  color: #1fb0dc;
   font-size: 26px;
   margin: 50px 0 80px 0;
 }
 
 h2 {
+  color: #f2192f;
   font-size: 16px;
 }
 
@@ -34,13 +37,14 @@ div {
 }
 
 #list-container {
-  border: 2px solid #101010;
+  border: 2px dashed #6edcd9;
   width: 100%;
   font-size: 12px;
 }
 
 li {
   border-bottom: 1px dashed #6edcd9;
+  color: #0c0c0c;
   padding: 10px;
 }
 
@@ -59,9 +63,12 @@ form {
 
 input[type='text'] {
   padding: 8px;
+  background: #504f50;
+  color: #e15fed;
 }
 
 input[type='text']:focus {
+  background: aquamarine;
   outline: none;
 }
 
@@ -69,7 +76,7 @@ button,
 #submit {
   background: #504f50;
   padding: 8px;
-  color: rgb(135, 141, 139);
+  color: rgb(205, 145, 102);
 }
 
 button:focus {
